@@ -1,24 +1,25 @@
 {
-	"name": "sensorhat-influxdb",
-	"version": "1.0.0",
-	"description": "Sensorhat To InfluxDB",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/bensternthal/sensorhat-influxdb.git"
-	},
-	"main": "app.js",
-	"scripts": {
-		"start": "node app.js"
-	},
-	"author": "Benjamin Sternthal",
-	"license": "MPL-2.0",
-	"dependencies": {
-		"dotenv": "^4.0.0",
-		"influx": "^4.2.1",
-		"slackbots": "^0.5.2"
-	},
-	"devDependencies": {
-		"eslint": "^3.19.0",
-		"eslint-config-google": "^0.7.1"
-	}
+  "name": "sensorhat-influxdb",
+  "version": "1.0.0",
+  "description": "Sensorhat To InfluxDB",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bensternthal/sensorhat-influxdb.git"
+  },
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Benjamin Sternthal",
+  "license": "MPL-2.0",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "influx": "^4.2.1",
+    "node-sense-hat": "0.0.2",
+    "slackbots": "^0.5.2"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-google": "^0.7.1"
+  }
 }

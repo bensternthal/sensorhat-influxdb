@@ -3,18 +3,18 @@
 require('dotenv').config();
 
 const Hat = require('./lib/sensorHatClient');
-const Influx = require('./lib/influx');
+// const Influx = require('./lib/influx');
 const SlackBot = require('slackbots');
 
 const Delay = process.env.UPDATE_FREQUENCY
 
 // Create & Configure Slackbot
-let bot = new SlackBot({
-    token: process.env.SLACK_API_TOKEN,
-    name: process.env.SLACK_BOT_NAME,
-});
-let channel = process.env.SLACK_CHANNEL;
-let params = {icon_emoji: ':tfws:'};
+// let bot = new SlackBot({
+//     token: process.env.SLACK_API_TOKEN,
+//     name: process.env.SLACK_BOT_NAME,
+// });
+// let channel = process.env.SLACK_CHANNEL;
+// let params = {icon_emoji: ':tfws:'};
 
 //bot.postMessageToGroup(channel, 'Living Room Has Started', params);
 
@@ -29,7 +29,13 @@ let params = {icon_emoji: ':tfws:'};
 //
 // };
 //
-// getData();
 
- let foo = getSenseHatJSON();
- console.log(foo);
+function getData() {
+    Hat.getSenseHatJSON().then(function(data) {
+        console.log(data);
+    }).catch(function(e) {
+        console.log(e);
+    });
+}
+
+getData();
