@@ -2,7 +2,7 @@
 
 require('dotenv').config();
 
-const hat = require('./lib/sensorHatClient');
+const Hat = require('./lib/sensorHatClient');
 const Influx = require('./lib/influx');
 const SlackBot = require('slackbots');
 
@@ -19,7 +19,7 @@ let params = {icon_emoji: ':tfws:'};
 bot.postMessageToGroup(channel, 'Living Room Has Started', params);
 
 function getData() {
-    Hat.getHatData().then(Influx.writeInflux).then(function() {
+    Hat.getSenseHatJSON().then(Influx.writeInflux).then(function() {
         setTimeout(getData, Delay);
     }).catch(function(e) {
         bot.postMessageToGroup(channel, e.message);
