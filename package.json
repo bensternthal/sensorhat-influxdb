@@ -15,7 +15,8 @@
   "dependencies": {
     "dotenv": "^4.0.0",
     "influx": "^4.2.1",
-    "node-sense-hat": "0.0.2",
+    "nodeimu": "^2.1.9",
+    "sense-hat-led": "^1.0.1",
     "slackbots": "^0.5.2"
   },
   "devDependencies": {

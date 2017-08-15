@@ -29,3 +29,9 @@ function getData() {
 };
 
 getData();
+
+// Shutdown and clear led
+process.stdin.on('data', function(data) {
+    bot.postMessageToGroup(channel, 'Hat Shutting Down', params);
+    Hat.clearLED();
+});
