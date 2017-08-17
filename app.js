@@ -16,10 +16,11 @@ let bot = new SlackBot({
 let channel = process.env.SLACK_CHANNEL;
 let params = {icon_emoji: ':tfws:'};
 
-bot.postMessageToGroup(channel, 'Living Room Has Started', params);
+// bot.postMessageToGroup(channel, 'Living Room Has Started', params);
 
 function getData() {
     Hat.getSenseHatJSON().then(Influx.writeInflux).then(function() {
+        Hat.updateLed();
         setTimeout(getData, Delay);
     }).catch(function(e) {
         bot.postMessageToGroup(channel, e.message);
@@ -29,9 +30,9 @@ function getData() {
 };
 
 getData();
-
+ 
 // Shutdown and clear led
 process.stdin.on('data', function(data) {
-    bot.postMessageToGroup(channel, 'Hat Shutting Down', params);
+    // bot.postMessageToGroup(channel, 'Hat Shutting Down', params);
     Hat.clearLED();
 });
